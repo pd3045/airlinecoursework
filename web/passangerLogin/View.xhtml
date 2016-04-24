@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewPassangerLoginTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewPassangerLoginLabel_loginId}"/>
+                    <h:outputText value="#{passangerLoginController.selected.loginId}" title="#{bundle.ViewPassangerLoginTitle_loginId}"/>
+                    <h:outputText value="#{bundle.ViewPassangerLoginLabel_loginUserName}"/>
+                    <h:outputText value="#{passangerLoginController.selected.loginUserName}" title="#{bundle.ViewPassangerLoginTitle_loginUserName}"/>
+                    <h:outputText value="#{bundle.ViewPassangerLoginLabel_loginPassword}"/>
+                    <h:outputText value="#{passangerLoginController.selected.loginPassword}" title="#{bundle.ViewPassangerLoginTitle_loginPassword}"/>
+                    <h:outputText value="#{bundle.ViewPassangerLoginLabel_active}"/>
+                    <h:outputText value="#{passangerLoginController.selected.active}" title="#{bundle.ViewPassangerLoginTitle_active}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{passangerLoginController.destroyAndView}" value="#{bundle.ViewPassangerLoginDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewPassangerLoginEditLink}"/>
+                <br />
+                <h:commandLink action="#{passangerLoginController.prepareCreate}" value="#{bundle.ViewPassangerLoginCreateLink}" />
+                <br />
+                <h:commandLink action="#{passangerLoginController.prepareList}" value="#{bundle.ViewPassangerLoginShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewPassangerLoginIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
